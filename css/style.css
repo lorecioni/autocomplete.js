@@ -1,0 +1,105 @@
+@CHARSET "UTF-8";
+
+@font-face {
+	font-family: Interstate;
+	src: url('../font/InterstateLight.ttf');
+	format
+	('truetype');
+}
+
+@font-face {
+	font-family: Interstate;
+	src: url('../font/InterstateLightItalic.ttf'); format ('truetype');
+	font-style: italic;
+}
+
+@font-face {
+	font-family: Interstate;
+	src: url('../font/InterstateBold.ttf'); format ('truetype');
+	font-weight: bold;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Interstate !important;
+}
+
+h1 {
+	text-align: center;
+}
+
+ul {
+	-webkit-margin-before: 0em;
+	-webkit-margin-after: 0em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+	-webkit-padding-start: 0px;
+}
+
+#search-form {
+	margin: 70px auto 10px auto;
+	display: block;
+	text-align: center;
+}
+
+#text-input {
+	width: 400px;
+	height: 20px;
+	padding: 5px;
+	border-radius: 3px;
+	font-family: Interstate;
+}
+
+#search-button {
+	margin-left: 10px;
+	font-family: Interstate;
+}
+
+#search-box {
+	position: relative;
+	width: 400px;
+	margin: 0 auto;
+	display: inline;
+}
+
+#proposal-box {
+	position: absolute;
+	width: 412px;
+	height: auto;
+	border-left: 1px solid rgba(0, 0, 0, 0.11);
+	border-right: 1px solid rgba(0, 0, 0, 0.11);
+}
+
+#proposal-list {
+	list-style: none;
+}
+
+#proposal-list li {
+	text-align: left;
+	padding: 5px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.16);
+	height: 25px;
+	line-height: 25px;
+	background-color: #FFF;
+}
+
+#proposal-box a {
+	text-decoration: none;
+	color: black;
+	width: 100%;
+	display: block;
+}
+
+#proposal-box a:HOVER {
+	color: red;
+}
+
+#wrapper {
+	width: 592px;
+	margin: 0 auto;
+	background-color: rgba(0, 0, 0, 0.07);
+	height: 275px;
+	padding-top: 20px;
+	border-radius: 0px 0px 10px 10px;
+}
