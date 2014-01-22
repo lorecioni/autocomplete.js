@@ -3,19 +3,17 @@
 @font-face {
 	font-family: Interstate;
 	src: url('../font/InterstateLight.ttf');
-	format
-	('truetype');
 }
 
 @font-face {
 	font-family: Interstate;
-	src: url('../font/InterstateLightItalic.ttf'); format ('truetype');
+	src: url('../font/InterstateLightItalic.ttf');
 	font-style: italic;
 }
 
 @font-face {
 	font-family: Interstate;
-	src: url('../font/InterstateBold.ttf'); format ('truetype');
+	src: url('../font/InterstateBold.ttf');
 	font-weight: bold;
 }
 

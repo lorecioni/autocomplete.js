@@ -9,7 +9,7 @@
 </head>
 <body>
   <div id="wrapper">
-	<h1>Ajax Search 1.0</h1>
+	<h1>Ajax Search</h1>
 	<form id="search-form" action="result.php" method="get">
 		<div id="search-box">
 			<input type="text" id="text-input" name="query" placeholder="Search" autocomplete="off">
