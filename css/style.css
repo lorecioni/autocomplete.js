@@ -21,10 +21,19 @@ body {
 	margin: 0;
 	padding: 0;
 	font-family: Interstate !important;
+	background-color: #FDFFE0;
 }
 
 h1 {
 	text-align: center;
+	font-weight: normal;
+	font-size: 4em;
+	color: #940000;
+}
+
+#container {
+	width: 580px;
+	margin: 0 auto;
 }
 
 ul {
@@ -36,8 +45,6 @@ ul {
 }
 
 #search-form {
-	margin: 70px auto 10px auto;
-	display: block;
 	text-align: center;
 }
 
@@ -52,6 +59,17 @@ ul {
 #search-button {
 	margin-left: 10px;
 	font-family: Interstate;
+	border: none;
+	background-color: #990101;
+	color: white;
+	padding: 10px;
+	cursor: pointer;
+	border-radius: 5px;
+	transition: all 0.2s ease-out 0s;
+}
+
+#search-button:HOVER {
+	background-color: #F50909;
 }
 
 #search-box {
@@ -59,6 +77,10 @@ ul {
 	width: 400px;
 	margin: 0 auto;
 	display: inline;
+}
+
+:focus {
+	outline: none;
 }
 
 #proposal-box {
@@ -94,10 +116,25 @@ ul {
 }
 
 #wrapper {
-	width: 592px;
-	margin: 0 auto;
-	background-color: rgba(0, 0, 0, 0.07);
-	height: 275px;
-	padding-top: 20px;
-	border-radius: 0px 0px 10px 10px;
+	background-color: rgba(255, 222, 152, 0.53);
+	padding: 40px;
+	border-radius: 5px;
+}
+
+#sign {
+	text-align: center;
+	margin-top: 200px;
+}
+
+a.github-ribbon {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+
+#message {
+	margin-top: 100px;
+	margin-bottom: -100px;
+	font-size: 20px;
+	text-align: center;
 }
