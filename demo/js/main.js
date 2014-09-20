@@ -13,6 +13,10 @@ function createProposals(check){
 }
 
 $(document).ready(function(){
+	$('#search-form').autocomplete({
+		dataSource: ["ciao", "bau"]
+	});
+	/*
 	$('#text-input').bind("change paste keyup", function(){
 		
 		if($('#text-input').val() == ''){
@@ -21,7 +25,7 @@ $(document).ready(function(){
 		if($('#text-input').val() != ''){
 			createProposals($('#text-input').val());
 		}
-	});
+	});*/
 
 });
 

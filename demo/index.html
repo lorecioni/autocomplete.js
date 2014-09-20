@@ -4,7 +4,9 @@
 	<meta charset="UTF-8">
 	<title>Search autocomplete</title>
 	<link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/autocomplete.css">
 	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/autocomplete.js"></script>
 	<script src="js/main.js"></script>
 </head>
 <body>
@@ -14,17 +16,9 @@
  <div id="container">
 	<h1>Search autocomplete</h1>
   <div id="wrapper">
-	
-	<form id="search-form" action="" method="get">
-		<div id="search-box">
-			<input type="text" id="text-input" name="query" placeholder="Search" autocomplete="off">
-			<div id="proposal-box">
-				<ul id="proposal-list">
-				</ul>
-			</div>
-		</div>
-		<input type="button" id="search-button" name="search" value="Search">
-	</form>
+  
+  	<div id="search-form"></div>
+
   </div>
   <div id="message"></div>
   <div id="sign">
