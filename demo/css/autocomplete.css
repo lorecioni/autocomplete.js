@@ -76,3 +76,8 @@ ul {
 .proposal-box a:HOVER {
 	color: red;
 }
+
+.proposal li.selected {
+	background-color: rgba(197, 69, 29, 0.26);
+	color: white;
+}

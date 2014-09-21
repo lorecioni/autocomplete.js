@@ -7,6 +7,8 @@ A jQuery plugin for search hints
 (function($) {
 	$.fn.autocomplete = function(params) {
 		
+		var currentSelection = -1;
+		
 		//Default parameters
 		params = $.extend({
 			dataSource: [],
@@ -27,10 +29,10 @@ A jQuery plugin for search hints
 			var input = $('<input type="text" autocomplete="off" name="query">')
 				.attr('placeholder', params.placeholder)
 				.addClass('autocomplete-input')
+				
 				.css({
 					'width' : params.width,
-					'height' : params.height,
-					'line-height' : params.height
+					'height' : params.height
 				});
 
 			//Proposals
@@ -48,9 +50,23 @@ A jQuery plugin for search hints
 				.addClass('autocomplete-button')
 				.html(params.buttonText);
 				
+			input.keydown(function(e) {
+				switch(e.which) {
+					case 38: // up
+					console.log('up');
+					break;
+					case 40: // down
+					console.log('down');
+					
+					break;	
+					case 27: // esc
+					console.log('esc');
+					break;
+				}
+			});
 				
-
-			input.bind("change paste keyup", function(){	
+			input.change(function(){	
+			/*
 				if(input.val() == ''){
 					proposalList.empty();
 				}
@@ -63,7 +79,7 @@ A jQuery plugin for search hints
 						}
 					}
 					proposalList.html(result);
-				}
+				}*/
 			});
 			
 			$('.proposal').click(function(e){
