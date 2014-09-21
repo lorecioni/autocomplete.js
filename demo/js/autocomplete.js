@@ -21,7 +21,6 @@ A jQuery plugin for search hints
 			//Container
 			var searchContainer = $('<div></div>')
 				.addClass('autocomplete-container')
-				.css('width', params.width + 83)
 				.css('height', params.height * 2);	
 				
 			//Text input		
@@ -38,7 +37,7 @@ A jQuery plugin for search hints
 			var proposals = $('<div></div>')
 				.addClass('proposal-box')
 				.css('width', params.width + 14)
-				.css('top', input.height());
+				.css('top', input.height() + 16);
 			var proposalList = $('<ul></ul>')
 				.addClass('proposal-list');
 
@@ -49,11 +48,11 @@ A jQuery plugin for search hints
 				.addClass('autocomplete-button')
 				.html(params.buttonText);
 				
+				
 
 			input.bind("change paste keyup", function(){	
-				console.log(input);
 				if(input.val() == ''){
-					proposalList.html('');
+					proposalList.empty();
 				}
 				if(input.val() != ''){
 					var word = "^" + input.val() + ".*";
@@ -79,6 +78,8 @@ A jQuery plugin for search hints
 			searchContainer.append(proposals);
 			searchContainer.append(button);	
 			$(this).append(searchContainer);	
+			
+			searchContainer.css('width', params.width + button.width() + 32);
 		});
 
 		return this;
