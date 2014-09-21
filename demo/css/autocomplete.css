@@ -9,15 +9,17 @@ ul {
 }
 
 .autocomplete-container {
-	display: inline-flex;
 	position: relative;
+	width: 283px;
+	height: 32px;
+	margin: 0 auto;
 }
 
 .autocomplete-input {
 	padding: 7px;
 	border-radius: 3px 0 0 3px;
 	font-family: inherit;
-	display: inline;
+	float: left;
 	font-size: 1em;
 	border: 1px solid rgba(0, 0, 0, 0.19);
 	margin: 0;
@@ -29,10 +31,10 @@ ul {
 	background-color: #990101;
 	color: white;
 	padding: 8px;
+	float: left;
 	cursor: pointer;
 	border-radius: 0px 3px 3px 0px;
 	transition: all 0.2s ease-out 0s;
-	display: inline;
 }
 
 .autocomplete-button:HOVER {

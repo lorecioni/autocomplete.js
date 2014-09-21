@@ -20,7 +20,9 @@ A jQuery plugin for search hints
 		this.each(function() {
 			//Container
 			var searchContainer = $('<div></div>')
-				.addClass('autocomplete-container');	
+				.addClass('autocomplete-container')
+				.css('width', params.width + 83)
+				.css('height', params.height * 2);	
 				
 			//Text input		
 			var input = $('<input type="text" autocomplete="off" name="query">')
@@ -49,7 +51,7 @@ A jQuery plugin for search hints
 				
 
 			input.bind("change paste keyup", function(){	
-				console.log('he');
+				console.log(input);
 				if(input.val() == ''){
 					proposalList.html('');
 				}
