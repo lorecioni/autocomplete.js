@@ -64,20 +64,10 @@ ul {
 	height: 25px;
 	line-height: 25px;
 	background-color: rgba(255, 255, 255, 0.8);
+	cursor: pointer;
 }
 
-.proposal-box a {
-	text-decoration: none;
-	color: black;
-	width: 100%;
-	display: block;
-}
-
-.proposal-box a:HOVER {
-	color: red;
-}
-
-.proposal li.selected {
+li.proposal.selected {
 	background-color: rgba(175, 42, 0, 0.52);
 	color: white;
 }

@@ -6,6 +6,7 @@ $(document).ready(function(){
 		dataSource: proposals,
 		onSubmit: function(text){
 			console.log('hai cercato ' + text);
+			$('#message').html('You choose: ' + text);			
 		}
 	});
 });

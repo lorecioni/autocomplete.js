@@ -59,7 +59,8 @@ Author: Lorenzo Cioni - https://github.com/lorecioni
 					$('ul.proposal-list li').removeClass('selected');
 					if((currentSelection - 1) >= 0){
 						currentSelection--;
-						$( "ul.proposal-list li:eq(" + currentSelection + ")" ).addClass('selected');
+						$( "ul.proposal-list li:eq(" + currentSelection + ")" )
+							.addClass('selected');
 					} else {
 						currentSelection = -1;
 					}
@@ -69,20 +70,24 @@ Author: Lorenzo Cioni - https://github.com/lorecioni
 					if((currentSelection + 1) < currentProposals.length){
 						$('ul.proposal-list li').removeClass('selected');
 						currentSelection++;
-						$( "ul.proposal-list li:eq(" + currentSelection + ")" ).addClass('selected');
+						$( "ul.proposal-list li:eq(" + currentSelection + ")" )
+							.addClass('selected');
 					}
 					break;
 					case 13: // Enter
-						var text = $( "ul.proposal-list li:eq(" + currentSelection + ")" ).html();
-						input.val(text);
+						if(currentSelection > -1){
+							var text = $( "ul.proposal-list li:eq(" + currentSelection + ")" ).html();
+							input.val(text);
+						}
 						currentSelection = -1;
 						proposalList.empty();
-						params.onSubmit(text);
+						params.onSubmit(input.val());
 						break;
 					case 27: // Esc button
-					currentSelection = -1;
-					proposalList.empty();
-					break;
+						currentSelection = -1;
+						proposalList.empty();
+						input.val('');
+						break;
 				}
 			});
 				
@@ -91,30 +96,37 @@ Author: Lorenzo Cioni - https://github.com/lorecioni
 						&& e.which != 38 && e.which != 40){				
 					currentProposals = [];
 					currentSelection = -1;
-					if(input.val() == ''){
-						proposalList.empty();
-					}
+					proposalList.empty();
 					if(input.val() != ''){
 						var word = "^" + input.val() + ".*";
-						var result = "";
 						for(var test in params.dataSource){
 							if(params.dataSource[test].match(word)){
 								currentProposals.push(params.dataSource[test]);
-								result += '<a href="#" data="' + params.dataSource[test] + '" class="proposal">';
-								result += '<li>' + params.dataSource[test] + '</li></a>';
+								var element = $('<li></li>')
+									.html(params.dataSource[test])
+									.addClass('proposal')
+									.click(function(){
+										input.val($(this).html());
+										proposalList.empty();
+										params.onSubmit(input.val());
+									})
+									.mouseenter(function() {
+										$(this).addClass('selected');
+									})
+									.mouseleave(function() {
+										$(this).removeClass('selected');
+									});
+								proposalList.html(element);
 							}
 						}
-						proposalList.html(result);
 					}
 				}
 			});
 			
-			$('.proposal').click(function(e){
-				e.preventDefault();
-				var value = $(this).attr('data');
-				input.val('');
-				proposalList.html('');
-				$('#message').html('You choose: ' + value);
+			input.blur(function(e){
+				currentSelection = -1;
+				proposalList.empty();
+				$(this).val('');
 			});
 			
 			searchContainer.append(input);
