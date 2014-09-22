@@ -16,7 +16,7 @@ https://github.com/lorecioni
 
 .autocomplete-input {
 	padding: 9px;
-	border-radius: 3px 0 0 3px;
+	border-radius: 3px;
 	font-family: inherit;
 	float: left;
 	font-size: 1em;
@@ -62,6 +62,7 @@ https://github.com/lorecioni
 .proposal-list li {
 	text-align: left;
 	padding: 5px;
+	font-family: inherit;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.16);
 	height: 25px;
 	line-height: 25px;

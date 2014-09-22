@@ -17,6 +17,8 @@ At least fill hints and call the plugin on selected HTML element
 
 To add an Animotion programmatically:
 ```javascript
+var words = ['boat', 'dog', 'drink', 'elephant', 'fruit', 'London'];
+
 $(document).ready(function(){
 	$('#yourElement').autocomplete(
 		hints: words
@@ -30,6 +32,7 @@ $(document).ready(function(){
 - `placeholder`: search input placeholder (default: 'Search').
 - `width`: input text width.
 - `height`: input text height.
+- `showButton`: display search button (default: true).
 - `buttonText`: button text (default: 'Search').
 - `onSubmit`: function handler called on input submit.
 - `onBlur`: function handler called on input losing focus.

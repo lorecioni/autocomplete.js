@@ -17,6 +17,7 @@ Author: Lorenzo Cioni - https://github.com/lorecioni
 			placeholder: 'Search',
 			width: 200,
 			height: 16,
+			showButton: true,
 			buttonText: 'Search',
 			onSubmit: function(text){},
 			onBlur: function(){}
@@ -37,6 +38,10 @@ Author: Lorenzo Cioni - https://github.com/lorecioni
 					'width' : params.width,
 					'height' : params.height
 				});
+			
+			if(params.showButton){
+				input.css('border-radius', '3px 0 0 3px');
+			}
 
 			//Proposals
 			var proposals = $('<div></div>')
@@ -125,26 +130,31 @@ Author: Lorenzo Cioni - https://github.com/lorecioni
 				params.onBlur();
 			});
 			
-						
-			//Search button
-			var button = $('<div></div>')
-				.addClass('autocomplete-button')
-				.html(params.buttonText)
-				.css({
-					'height': params.height + 2,
-					'line-height': params.height + 'px'
-				})
-				.click(function(){
-					proposalList.empty();
-					params.onSubmit(input.val());
-				});
-			
 			searchContainer.append(input);
-			searchContainer.append(proposals);
-			searchContainer.append(button);	
+			searchContainer.append(proposals);		
+			
+			if(params.showButton){
+				//Search button
+				var button = $('<div></div>')
+					.addClass('autocomplete-button')
+					.html(params.buttonText)
+					.css({
+						'height': params.height + 2,
+						'line-height': params.height + 'px'
+					})
+					.click(function(){
+						proposalList.empty();
+						params.onSubmit(input.val());
+					});
+				searchContainer.append(button);	
+			}
+	
 			$(this).append(searchContainer);	
 			
-			searchContainer.css('width', params.width + button.width() + 50);
+			if(params.showButton){
+				//Width fix
+				searchContainer.css('width', params.width + button.width() + 50);
+			}
 		});
 
 		return this;
