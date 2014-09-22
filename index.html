@@ -26,7 +26,7 @@
   		fjs.parentNode.insertBefore(js, fjs);
 		}(document, 'script', 'facebook-jssdk'));</script>
 		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-	<a href="https://github.com/lorecioni/search-hints" target="_blank" class="github-ribbon">
+	<a href="https://github.com/lorecioni/autocomplete.js" target="_blank" class="github-ribbon">
 		<img src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub">
 	</a>
 		<header>
@@ -46,11 +46,11 @@
 		<div id="setup">
 			<div class="wrapper">
 				<h3>Getting started</h3>
-				1. Make sure jQuery is included in your page, than include <span class="highlighted">autocomplete.js</span> and <span class="highlighted">autocomplete.css</span> inside the head tag.
+				1. Make sure jQuery is included in your page, then include <span class="highlighted">autocomplete.js</span> and <span class="highlighted">autocomplete.css</span> inside the head tag.
 				<pre><code class="language-markup">&lt;link rel="stylesheet" href="css/autocomplete.css" type="text/css">
 &lt;script src="js/autocomplete.js">&lt;/script></code></pre>
 				2. Fill hints and call the plugin on selected HTML element
-				<pre><code class="language-javascript">var words = ['boat', 'dog', 'drink', 'elephant', 'fruit', 'London'];
+				<pre><code class="language-javascript">var words = ['boat', 'bear', 'dog', 'drink', 'elephant', 'fruit'];
 				
 $(document).ready(function(){
 	$('#yourElement').autocomplete(
@@ -63,14 +63,14 @@ $(document).ready(function(){
 			<div class="wrapper">
 				<h3>Options</h3>
 				<ul id="options-list">
-					<li><span class="highlighted">hints</span>: words array for displaying hints.</li>
-					<li><span class="highlighted">placeholder</span>: search input placeholder (default: 'Search').</li>
-					<li><span class="highlighted">width</span>: input text width.</li>
-					<li><span class="highlighted">height</span>: input text height.</li>
-					<li><span class="highlighted">showButton</span>: display search button (default: true).</li>
-					<li><span class="highlighted">buttonText</span>: button text (default: 'Search').</li>
-					<li><span class="highlighted">onSubmit</span>: function handler called on input submit.</li>
-					<li><span class="highlighted">onBlur</span>: function handler called on input losing focus.</li>
+					<li><span class="highlighted">hints</span>: words array for displaying hints</li>
+					<li><span class="highlighted">placeholder</span>: search input placeholder (default: 'Search')</li>
+					<li><span class="highlighted">width</span>: input text width</li>
+					<li><span class="highlighted">height</span>: input text height</li>
+					<li><span class="highlighted">showButton</span>: display search button (default: true)</li>
+					<li><span class="highlighted">buttonText</span>: button text (default: 'Search')</li>
+					<li><span class="highlighted">onSubmit</span>: function handler called on input submit</li>
+					<li><span class="highlighted">onBlur</span>: function handler called on input losing focus</li>
 				</ul>
 				<img src="img/active-search.png" alt="search" id="icon-search">
 			</div>
