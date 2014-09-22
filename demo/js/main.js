@@ -14,7 +14,7 @@ function createProposals(check){
 
 $(document).ready(function(){
 	$('#search-form').autocomplete({
-		dataSource: ["ciao", "bau"]
+		dataSource: proposals
 	});
 	/*
 	$('#text-input').bind("change paste keyup", function(){

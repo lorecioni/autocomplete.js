@@ -8,6 +8,7 @@ A jQuery plugin for search hints
 	$.fn.autocomplete = function(params) {
 		
 		var currentSelection = -1;
+		var currentProposals = [];
 		
 		//Default parameters
 		params = $.extend({
@@ -38,8 +39,8 @@ A jQuery plugin for search hints
 			//Proposals
 			var proposals = $('<div></div>')
 				.addClass('proposal-box')
-				.css('width', params.width + 14)
-				.css('top', input.height() + 16);
+				.css('width', params.width + 18)
+				.css('top', input.height() + 20);
 			var proposalList = $('<ul></ul>')
 				.addClass('proposal-list');
 
@@ -52,33 +53,48 @@ A jQuery plugin for search hints
 				
 			input.keydown(function(e) {
 				switch(e.which) {
-					case 38: // up
-					console.log('up');
+					case 38: // Up arrow
+					e.preventDefault();
+					$('ul.proposal-list li').removeClass('selected');
+					if((currentSelection - 1) >= 0){
+						currentSelection--;
+						$( "ul.proposal-list li:eq(" + currentSelection + ")" ).addClass('selected');
+					} else {
+						currentSelection = -1;
+					}
 					break;
-					case 40: // down
-					console.log('down');
-					
+					case 40: // Down arrow
+					e.preventDefault();
+					if((currentSelection + 1) < currentProposals.length){
+						$('ul.proposal-list li').removeClass('selected');
+						currentSelection++;
+						$( "ul.proposal-list li:eq(" + currentSelection + ")" ).addClass('selected');
+					}
 					break;	
-					case 27: // esc
+					case 27: // Esc button
 					console.log('esc');
 					break;
 				}
 			});
 				
-			input.change(function(){	
-			
-				if(input.val() == ''){
-					proposalList.empty();
-				}
-				if(input.val() != ''){
-					var word = "^" + input.val() + ".*";
-					var result = "";
-					for(var test in params.dataSource){
-						if(params.dataSource[test].match(word)){
-							result += '<a href="#" data="' + params.dataSource[test] + '" class="proposal"><li>' + params.dataSource[test] + '</li></a>'
-						}
+			input.bind("change paste keyup", function(e){
+				if(e.which != 27 && e.which != 38 && e.which != 40){				
+					currentProposals = [];
+					currentSelection = -1;
+					if(input.val() == ''){
+						proposalList.empty();
 					}
-					proposalList.html(result);
+					if(input.val() != ''){
+						var word = "^" + input.val() + ".*";
+						var result = "";
+						for(var test in params.dataSource){
+							if(params.dataSource[test].match(word)){
+								currentProposals.push(params.dataSource[test]);
+								result += '<a href="#" data="' + params.dataSource[test] + '" class="proposal"><li>' + params.dataSource[test] + '</li></a>'
+							}
+						}
+						proposalList.html(result);
+					}
 				}
 			});
 			
