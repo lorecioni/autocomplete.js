@@ -7,10 +7,10 @@
         "search",
 		"hints"
     ],
-    "version": "1.0.0",
+    "version": "1.0.1",
     "author": {
         "name": "Lorenzo Cioni",
-        "url": "https://github.com/lorecioni/autocomplete.js"
+        "url": "https://github.com/lorecioni"
     },
     "maintainers": [
         {
@@ -27,8 +27,9 @@
     ],
     "bugs": "https://github.com/lorecioni/autocomplete.js/issues",
     "homepage": "https://github.com/lorecioni/autocomplete.js",
+	"demo": "http://lorecioni.github.io/autocomplete.js",
     "docs": "https://github.com/lorecioni/autocomplete.js",
-    "download": "http://lorecioni.github.io/autocomplete.js",
+    "download": "https://raw.githubusercontent.com/lorecioni/autocomplete.js/master/source/autocomplete.zip",
     "dependencies": {
         "jquery": ">=1.5"
     }
