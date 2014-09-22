@@ -2,28 +2,105 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Search autocomplete</title>
+	<title>Autocomplete.js</title>
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="http://lorecioni.github.io/autocomplete.js/" />
+	<meta property="og:title" content="Autocomplete.js" />
+	<meta property="og:description" content="A jQuery plugin for search hints" />
+	<meta property="og:site_name" content="Autocomplete.js" />
 	<link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/autocomplete.css">
+	<link rel="stylesheet" href="css/prism.css">
 	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="js/autocomplete.js"></script>
+	<script src="js/prism.js"></script>
 	<script src="js/main.js"></script>
 </head>
 <body>
-<a href="https://github.com/lorecioni/search-hints" target="_blank" class="github-ribbon">
-	<img src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub">
-</a>
- <div id="container">
-	<h1>Search autocomplete</h1>
-  <div id="wrapper">
-  
-  	<div id="search-form"></div>
-
-  </div>
-  <div id="message"></div>
-  <div id="sign">
-	Made by <a href="https://github.com/lorecioni">Lorenzo Cioni</a>
-  </div>
- </div>
+	 <div id="fb-root"></div>
+	<script>(function(d, s, id) {
+  		var js, fjs = d.getElementsByTagName(s)[0];
+  		if (d.getElementById(id)) return;
+  		js = d.createElement(s); js.id = id;
+  		js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=786477028052582&version=v2.0";
+  		fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	<a href="https://github.com/lorecioni/search-hints" target="_blank" class="github-ribbon">
+		<img src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub">
+	</a>
+		<header>
+			<h1>Autocomplete.js</h1>
+			<h2>A jQuery plugin for search hints</h2>
+			<div class="btn-container">
+				<a href="#download" class="button">download</a>
+			</div>
+		</header>
+		<div id="demo">
+			<div class="wrapper">
+				<h3>Demo</h3>
+				<div id="search-form"></div>
+				<div id="message">Selection</div>
+			</div>
+		</div>
+		<div id="setup">
+			<div class="wrapper">
+				<h3>Getting started</h3>
+				1. Make sure jQuery is included in your page, than include <span class="highlighted">autocomplete.js</span> and <span class="highlighted">autocomplete.css</span> inside the head tag.
+				<pre><code class="language-markup">&lt;link rel="stylesheet" href="css/autocomplete.css" type="text/css">
+&lt;script src="js/autocomplete.js">&lt;/script></code></pre>
+				2. Fill hints and call the plugin on selected HTML element
+				<pre><code class="language-javascript">var words = ['boat', 'dog', 'drink', 'elephant', 'fruit', 'London'];
+				
+$(document).ready(function(){
+	$('#yourElement').autocomplete(
+		hints: words
+	);
+});</code></pre>
+			</div>
+		</div>
+		<div id="options">
+			<div class="wrapper">
+				<h3>Options</h3>
+				<ul id="options-list">
+					<li><span class="highlighted">hints</span>: words array for displaying hints.</li>
+					<li><span class="highlighted">placeholder</span>: search input placeholder (default: 'Search').</li>
+					<li><span class="highlighted">width</span>: input text width.</li>
+					<li><span class="highlighted">height</span>: input text height.</li>
+					<li><span class="highlighted">buttonText</span>: button text (default: 'Search').</li>
+					<li><span class="highlighted">onSubmit</span>: function handler called on input submit.</li>
+					<li><span class="highlighted">onBlur</span>: function handler called on input losing focus.</li>
+				</ul>
+				<img src="img/active-search.png" alt="search" id="icon-search">
+			</div>
+		</div>
+		<div id="download">
+			<div class="wrapper">
+				<h3>Download</h3>
+				<div class="btn-container">
+					<a href="https://raw.githubusercontent.com/lorecioni/autocomplete.js/master/source/autocomplete.min.zip" download="autocomplete.min.zip" class="button">
+						Download Minified (1.1K)
+					</a>
+					<a href="https://raw.githubusercontent.com/lorecioni/autocomplete.js/master/source/autocomplete.zip" download="autocomplete.zip" class="button">
+						Download Source (1.1K)
+					</a>
+				</div>
+			</div>
+		</div>
+		<footer>
+			<div id="social" class="section">
+		  		<div id="sharing-box">
+					<iframe class="gh-button" src="http://ghbtns.com/github-btn.html?user=lorecioni&repo=autocomplete.js&type=watch&count=true&size=large"
+  allowtransparency="true" frameborder="0" scrolling="0" width="110" height="30"></iframe>
+  					<div class="fb-like" data-href="http://lorecioni.github.io/autocomplete.js/" data-layout="box_count" data-action="like" data-show-faces="true" data-share="false"></div>
+				<div id="twitter-share">
+					<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://lorecioni.github.io/autocomplete.js/" data-counturl="http://lorecioni.github.io/autocomplete.js/" data-lang="en" data-count="vertical">Tweet</a>
+  				</div>
+  			</div>
+			</div>
+			<div id="sign">
+				Developed by <a href="mailto:lore.cioni@gmail.com">Lorenzo Cioni</a> - View on <a target="_blank" href="https://github.com/lorecioni/autocomplete.js">Github</a>
+			</div>
+		</footer>
 </body>
 </html>

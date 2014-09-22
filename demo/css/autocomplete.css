@@ -1,12 +1,11 @@
 @CHARSET "UTF-8";
 
-ul {
-	-webkit-margin-before: 0em;
-	-webkit-margin-after: 0em;
-	-webkit-margin-start: 0px;
-	-webkit-margin-end: 0px;
-	-webkit-padding-start: 0px;
-}
+/********************************
+A jQuery plugin for search hints
+
+Author: Lorenzo Cioni 
+https://github.com/lorecioni
+********************************/
 
 .autocomplete-container {
 	position: relative;
@@ -35,14 +34,11 @@ ul {
 	cursor: pointer;
 	border-radius: 0px 3px 3px 0px;
 	transition: all 0.2s ease-out 0s;
+	margin: 0.5px 0px 0px -1px;
 }
 
 .autocomplete-button:HOVER {
-	background-color: #F50909;
-}
-
-:focus {
-	outline: none;
+	background-color: #D11E1E;
 }
 
 .proposal-box {
@@ -55,6 +51,12 @@ ul {
 
 .proposal-list {
 	list-style: none;
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.44);
+	-webkit-margin-before: 0em;
+	-webkit-margin-after: 0em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+	-webkit-padding-start: 0px;
 }
 
 .proposal-list li {

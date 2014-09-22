@@ -7,17 +7,19 @@ Author: Lorenzo Cioni - https://github.com/lorecioni
 (function($) {
 	$.fn.autocomplete = function(params) {
 		
+		//Selections
 		var currentSelection = -1;
 		var currentProposals = [];
 		
 		//Default parameters
 		params = $.extend({
-			dataSource: [],
+			hints: [],
 			placeholder: 'Search',
 			width: 200,
 			height: 16,
 			buttonText: 'Search',
-			onSubmit: function(text){}
+			onSubmit: function(text){},
+			onBlur: function(){}
 		}, params);
 
 		//Build messagess
@@ -31,7 +33,6 @@ Author: Lorenzo Cioni - https://github.com/lorecioni
 			var input = $('<input type="text" autocomplete="off" name="query">')
 				.attr('placeholder', params.placeholder)
 				.addClass('autocomplete-input')
-				
 				.css({
 					'width' : params.width,
 					'height' : params.height
@@ -47,11 +48,6 @@ Author: Lorenzo Cioni - https://github.com/lorecioni
 
 			proposals.append(proposalList);
 			
-			//Search button
-			var button = $('<div></div>')
-				.addClass('autocomplete-button')
-				.html(params.buttonText);
-				
 			input.keydown(function(e) {
 				switch(e.which) {
 					case 38: // Up arrow
@@ -99,11 +95,11 @@ Author: Lorenzo Cioni - https://github.com/lorecioni
 					proposalList.empty();
 					if(input.val() != ''){
 						var word = "^" + input.val() + ".*";
-						for(var test in params.dataSource){
-							if(params.dataSource[test].match(word)){
-								currentProposals.push(params.dataSource[test]);
+						for(var test in params.hints){
+							if(params.hints[test].match(word)){
+								currentProposals.push(params.hints[test]);
 								var element = $('<li></li>')
-									.html(params.dataSource[test])
+									.html(params.hints[test])
 									.addClass('proposal')
 									.click(function(){
 										input.val($(this).html());
@@ -125,9 +121,23 @@ Author: Lorenzo Cioni - https://github.com/lorecioni
 			
 			input.blur(function(e){
 				currentSelection = -1;
-				proposalList.empty();
-				$(this).val('');
+				//proposalList.empty();
+				params.onBlur();
 			});
+			
+						
+			//Search button
+			var button = $('<div></div>')
+				.addClass('autocomplete-button')
+				.html(params.buttonText)
+				.css({
+					'height': params.height + 2,
+					'line-height': params.height + 'px'
+				})
+				.click(function(){
+					proposalList.empty();
+					params.onSubmit(input.val());
+				});
 			
 			searchContainer.append(input);
 			searchContainer.append(proposals);

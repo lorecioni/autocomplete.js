@@ -3,10 +3,11 @@ var proposals = ['at', 'boat', 'bear', 'chief', 'dog', 'drink', 'elephant', 'fru
 
 $(document).ready(function(){
 	$('#search-form').autocomplete({
-		dataSource: proposals,
+		hints: proposals,
+		width: 300,
+		height: 30,
 		onSubmit: function(text){
-			console.log('hai cercato ' + text);
-			$('#message').html('You choose: ' + text);			
+			$('#message').html('Selected: <b>' + text + '</b>');			
 		}
 	});
 });
