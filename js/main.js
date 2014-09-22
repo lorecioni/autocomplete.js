@@ -1,35 +1,13 @@
 var proposals = ['at', 'boat', 'bear', 'chief', 'dog', 'drink', 'elephant', 'fruit', 'grave',
 					'hotel', 'illness', 'London', 'motorbike'];
-					
-function createProposals(check){
-	var word = "^" + check + ".*";
-	var result = "";
-	for(var test in proposals){
-		if(proposals[test].match(word)){
-			result += '<a href="#" data="' + proposals[test] + '" class="proposal"><li>' + proposals[test] + '</li></a>'
-		}
-	}
-	$('#proposal-list').html(result);
-}
 
 $(document).ready(function(){
-	$('#text-input').bind("change paste keyup", function(){
-		
-		if($('#text-input').val() == ''){
-			$('#proposal-list').html('');
-		}
-		if($('#text-input').val() != ''){
-			createProposals($('#text-input').val());
+	$('#search-form').autocomplete({
+		hints: proposals,
+		width: 300,
+		height: 30,
+		onSubmit: function(text){
+			$('#message').html('Selected: <b>' + text + '</b>');			
 		}
 	});
-
-});
-
-$(document).on('click', '.proposal', function(e) {
-	e.preventDefault();
-	var value = $(this).attr('data');
-	$('#text-input').val('');
-	$('#proposal-list').html('');
-	$('#message').html('You choose: ' + value);
-	
 });
