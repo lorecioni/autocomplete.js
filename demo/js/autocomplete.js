@@ -66,7 +66,7 @@ A jQuery plugin for search hints
 			});
 				
 			input.change(function(){	
-			/*
+			
 				if(input.val() == ''){
 					proposalList.empty();
 				}
@@ -79,7 +79,7 @@ A jQuery plugin for search hints
 						}
 					}
 					proposalList.html(result);
-				}*/
+				}
 			});
 			
 			$('.proposal').click(function(e){
@@ -95,7 +95,7 @@ A jQuery plugin for search hints
 			searchContainer.append(button);	
 			$(this).append(searchContainer);	
 			
-			searchContainer.css('width', params.width + button.width() + 32);
+			searchContainer.css('width', params.width + button.width() + 50);
 		});
 
 		return this;

@@ -1,26 +1,11 @@
 @CHARSET "UTF-8";
 
-@font-face {
-	font-family: Interstate;
-	src: url('../font/InterstateLight.ttf');
-}
-
-@font-face {
-	font-family: Interstate;
-	src: url('../font/InterstateLightItalic.ttf');
-	font-style: italic;
-}
-
-@font-face {
-	font-family: Interstate;
-	src: url('../font/InterstateBold.ttf');
-	font-weight: bold;
-}
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
 
 body {
 	margin: 0;
 	padding: 0;
-	font-family: Interstate !important;
+	font-family: Montserrat !important;
 	background-color: #FDFFE0;
 }
 
