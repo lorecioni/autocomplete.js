@@ -1,8 +1,46 @@
-Search Autocomplete
-===========
+#Autocomplete.js
+*A jQuery plugin for search hints*
 
-DEMO [here](http://lorecioni.github.io/search-autocomplete/ "MIT License").
+`Autocomplete.js` is jQuery plugin that improve your search with hints.
 
-Search interface with word hints autocomplete. 
+##Getting started
+Make sure jQuery is included in your page, than include autocomplete.js and autocomplete.css inside the head tag.
 
-Dataset to be expanded.
+```html
+<head>
+	<link rel="stylesheet" type="text/css" href="css/autocomplete.min.css"/>
+	<script src="js/autocomplete.min.js"></script>
+</head>
+```
+
+At least fill hints and call the plugin on selected HTML element
+
+To add an Animotion programmatically:
+```javascript
+$(document).ready(function(){
+	$('#yourElement').autocomplete(
+		hints: words
+	);
+});
+```
+
+**Options** 
+
+- `hints`: words array for displaying hints.
+- `placeholder`: search input placeholder (default: 'Search').
+- `width`: input text width.
+- `height`: input text height.
+- `buttonText`: button text (default: 'Search').
+- `onSubmit`: function handler called on input submit.
+- `onBlur`: function handler called on input losing focus.
+- `height`: input text height.
+
+
+##Demo
+To view a simple demo click [here](http://lorecioni.github.io/autocomplete.js)
+
+## License
+Autocomplete.js is licensed under the MIT license. (http://opensource.org/licenses/MIT)
+
+## Contributing
+Pull requests and feedbacks are welcome here!
