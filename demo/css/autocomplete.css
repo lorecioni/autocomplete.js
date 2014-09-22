@@ -78,6 +78,6 @@ ul {
 }
 
 .proposal li.selected {
-	background-color: rgba(197, 69, 29, 0.26);
+	background-color: rgba(175, 42, 0, 0.52);
 	color: white;
 }

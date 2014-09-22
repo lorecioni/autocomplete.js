@@ -1,7 +1,7 @@
 /**
-
 A jQuery plugin for search hints
 
+Author: Lorenzo Cioni - https://github.com/lorecioni
 */
 
 (function($) {
@@ -16,7 +16,8 @@ A jQuery plugin for search hints
 			placeholder: 'Search',
 			width: 200,
 			height: 16,
-			buttonText: 'Search'
+			buttonText: 'Search',
+			onSubmit: function(text){}
 		}, params);
 
 		//Build messagess
@@ -70,15 +71,24 @@ A jQuery plugin for search hints
 						currentSelection++;
 						$( "ul.proposal-list li:eq(" + currentSelection + ")" ).addClass('selected');
 					}
-					break;	
+					break;
+					case 13: // Enter
+						var text = $( "ul.proposal-list li:eq(" + currentSelection + ")" ).html();
+						input.val(text);
+						currentSelection = -1;
+						proposalList.empty();
+						params.onSubmit(text);
+						break;
 					case 27: // Esc button
-					console.log('esc');
+					currentSelection = -1;
+					proposalList.empty();
 					break;
 				}
 			});
 				
 			input.bind("change paste keyup", function(e){
-				if(e.which != 27 && e.which != 38 && e.which != 40){				
+				if(e.which != 13 && e.which != 27 
+						&& e.which != 38 && e.which != 40){				
 					currentProposals = [];
 					currentSelection = -1;
 					if(input.val() == ''){
@@ -90,7 +100,8 @@ A jQuery plugin for search hints
 						for(var test in params.dataSource){
 							if(params.dataSource[test].match(word)){
 								currentProposals.push(params.dataSource[test]);
-								result += '<a href="#" data="' + params.dataSource[test] + '" class="proposal"><li>' + params.dataSource[test] + '</li></a>'
+								result += '<a href="#" data="' + params.dataSource[test] + '" class="proposal">';
+								result += '<li>' + params.dataSource[test] + '</li></a>';
 							}
 						}
 						proposalList.html(result);
