@@ -1,0 +1,35 @@
+﻿{
+    "name": "autocomplete",
+    "title": "Autocomplete.js",
+    "description": "A jQuery plugin for search hints",
+    "keywords": [
+        "autocomplete",
+        "search",
+		"hints"
+    ],
+    "version": "1.0.0",
+    "author": {
+        "name": "Lorenzo Cioni",
+        "url": "https://github.com/lorecioni/autocomplete.js"
+    },
+    "maintainers": [
+        {
+            "name": "Lorenzo Cioni",
+            "email": "lore.cioni@gmail.com",
+            "url": "https://github.com/lorecioni"
+        }
+    ],
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "http://opensource.org/licenses/MIT"
+        }
+    ],
+    "bugs": "https://github.com/lorecioni/autocomplete.js/issues",
+    "homepage": "https://github.com/lorecioni/autocomplete.js",
+    "docs": "https://github.com/lorecioni/autocomplete.js",
+    "download": "http://lorecioni.github.io/autocomplete.js",
+    "dependencies": {
+        "jquery": ">=1.5"
+    }
+}
