@@ -1,5 +1,4 @@
-var proposals = ['at', 'boat', 'bear', 'chief', 'dog', 'drink', 'elephant', 'fruit', 'grave',
-					'hotel', 'illness', 'London', 'motorbike'];
+var proposals = ['boat', 'bear', 'dog', 'drink', 'elephant', 'fruit'];
 
 $(document).ready(function(){
 	$('#search-form').autocomplete({
