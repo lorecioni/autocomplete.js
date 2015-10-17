@@ -20,9 +20,9 @@ To add an Animotion programmatically:
 var words = ['boat', 'dog', 'drink', 'elephant', 'fruit', 'London'];
 
 $(document).ready(function(){
-	$('#yourElement').autocomplete(
+	$('#yourElement').autocomplete({
 		hints: words
-	);
+	});
 });
 ```
 
