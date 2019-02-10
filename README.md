@@ -1,9 +1,9 @@
-#Autocomplete.js
+# Autocomplete.js
 *A jQuery plugin for search hints*
 
-`Autocomplete.js` is jQuery plugin that improve your search with hints.
+`Autocomplete.js` is a jQuery plugin that improve your search with hints.
 
-##Getting started
+## Getting started
 Make sure jQuery is included in your page, than include autocomplete.js and autocomplete.css inside the head tag.
 
 ```html
@@ -39,7 +39,7 @@ $(document).ready(function(){
 - `height`: input text height.
 
 
-##Demo
+## Demo
 To view a simple demo click [here](http://lorecioni.github.io/autocomplete.js)
 
 ## License
