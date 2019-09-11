@@ -92,7 +92,7 @@ Author: Lorenzo Cioni - https://github.com/lorecioni
 				}
 			});
 				
-			input.bind("change paste keyup", function(e){
+			input.bind("paste keyup", function(e){
 				if(e.which != 13 && e.which != 27 
 						&& e.which != 38 && e.which != 40){				
 					currentProposals = [];
