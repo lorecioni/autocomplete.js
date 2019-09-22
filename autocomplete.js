@@ -2,6 +2,10 @@
 A jQuery plugin for search hints
 
 Author: Lorenzo Cioni - https://github.com/lorecioni
+
+Alanjiang:  edit the autocomplete.js to  fix the bug that the keywords just match the first left character,we need to match the key
+
+keywords in any position,  2019/09/22
 */
 
 (function($) {
@@ -15,8 +19,8 @@ Author: Lorenzo Cioni - https://github.com/lorecioni
 		params = $.extend({
 			hints: [],
 			placeholder: 'Search',
-			width: 200,
-			height: 16,
+			width: 360,
+			height: 22,
 			showButton: true,
 			buttonText: 'Search',
 			onSubmit: function(text){},
@@ -31,7 +35,7 @@ Author: Lorenzo Cioni - https://github.com/lorecioni
 				.css('height', params.height * 2);	
 				
 			//Text input		
-			var input = $('<input type="text" autocomplete="off" name="query">')
+			var input = $('<input type="text" id="addressInput" autocomplete="off" name="query">')
 				.attr('placeholder', params.placeholder)
 				.addClass('autocomplete-input')
 				.css({
@@ -47,7 +51,7 @@ Author: Lorenzo Cioni - https://github.com/lorecioni
 			var proposals = $('<div></div>')
 				.addClass('proposal-box')
 				.css('width', params.width + 18)
-				.css('top', input.height() + 20);
+				.css('top', input.height() + 5);
 			var proposalList = $('<ul></ul>')
 				.addClass('proposal-list');
 
@@ -99,10 +103,13 @@ Author: Lorenzo Cioni - https://github.com/lorecioni
 					currentSelection = -1;
 					proposalList.empty();
 					if(input.val() != ''){
-						var word = "^" + input.val() + ".*";
+						//var word = "^" + input.val() + ".*";
+                                                var word=input.val();
+                                                var reg=new RegExp(word);
 						proposalList.empty();
 						for(var test in params.hints){
-							if(params.hints[test].match(word)){
+							//if(params.hints[test].match(word)){
+                                                        if(reg.test(params.hints[test])){
 								currentProposals.push(params.hints[test]);	
 								var element = $('<li></li>')
 									.html(params.hints[test])
@@ -155,7 +162,10 @@ Author: Lorenzo Cioni - https://github.com/lorecioni
 			if(params.showButton){
 				//Width fix
 				searchContainer.css('width', params.width + button.width() + 50);
-			}
+			}else{
+                                searchContainer.css('width', params.width + 150);
+                        }
+                         
 		});
 
 		return this;
